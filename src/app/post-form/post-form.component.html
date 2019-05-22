@@ -1,0 +1,14 @@
+<form 
+  #addForm="ngForm" 
+  (ngSubmit)="onSubmit(addForm)">
+  
+  <label for="">Title</label>
+  <input class="titleInput" type="text" name="postTitle" placeholder="Post title" ngModel>
+  
+  <label for="">Thought</label>
+  <input class="thoughtInput" type="text" name="thought" ngModel>
+  
+  <button>Add Post</button>
+
+</form>
+

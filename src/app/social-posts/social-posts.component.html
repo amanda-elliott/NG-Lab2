@@ -1,0 +1,35 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<main>
+  <h1>My Thoughts</h1>
+  <button 
+    *ngIf="!show"
+    (click)="toggle()">
+    New Thought
+  </button>
+
+  <post-form *ngIf="show"
+    (submitted)="onSubmit($event)" 
+    (onRemovePost)="removePost($event)"
+    (onToggle)="toggle($event)">
+  </post-form>
+
+  <section>
+    <div *ngFor="let post of postList; index as i">
+      <h2>{{ post.header }}</h2>
+      <p class="content">{{ post.content }}
+        <i (click)="removePost(i)" 
+          class="material-icons delete"
+        >close</i>
+      </p>
+      <p class="vote">
+        <i (click)="upVote(i)" 
+          class="material-icons thumb"
+        >thumb_up</i>
+        {{ post.vote }}
+      </p>
+    </div>
+  </section>
+
+</main>
+
